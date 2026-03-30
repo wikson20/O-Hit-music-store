@@ -1,0 +1,26 @@
+/* Resetujemy domyślne marginesy przeglądarki */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Jasny motyw dla całej strony */
+body {
+  background-color: #f8f9fa; /* Bardzo delikatny, jasnoszary kolor tła */
+  color: #333333;            /* Ciemnoszary tekst (lepszy do czytania niż smolista czerń) */
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; /* Nowoczesna czcionka */
+  scroll-behavior: smooth;
+}
+
+/* Globalny styl dla przycisków, żeby były płynne */
+button {
+  font-family: inherit;
+  transition: all 0.2s ease; /* Płynna animacja */
+}
+
+/* Efekt po najechaniu myszką na jakikolwiek przycisk */
+button:hover {
+  transform: translateY(-2px); /* Przycisk delikatnie unosi się do góry! */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
