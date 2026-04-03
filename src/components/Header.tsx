@@ -1,41 +1,44 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
-// 1. Definiujemy, co nasz Header będzie przyjmował z zewnątrz
 interface HeaderProps {
   cartItemCount: number;
-  onCartClick: () => void; // Funkcja, która odpali się po kliknięciu
+  onCartClick: () => void;
 }
 
-// 2. Odbieramy te dane w nawiasach (tzw. destruktyryzacja propsów)
 export default function Header({ cartItemCount, onCartClick }: HeaderProps) {
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header style={{
-      backgroundColor: '#1a1a1a', color: 'white', padding: '20px 40px',
-      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-      boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-      position: 'sticky', top: 0, zIndex: 100 // Żeby header zawsze był na górze przy przewijaniu
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-        <img src="/logo sklep.svg" alt="O-Hit Logo" style={{ width: '50%', height: '100%'}} />
-        <h1 style={{ margin: 0, fontSize: '28px', letterSpacing: '2px' }}></h1>
+    <header className="main-nav">
+      
+      {/* SEKCJA 1: LOGO + PRZYCISK HAMBURGERA */}
+      <div className="nav-header">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <img src="/logo sklep.svg" alt="O-Hit Logo" style={{ width: '100px' }} /> 
+        </div>
+        
+        <button className="hamburger-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          ☰
+        </button>
+
       </div>
       
-      <nav style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Sklep</Link>
-        <Link to="/o-nas" style={{ color: 'white', textDecoration: 'none' }}>O nas</Link>
-        
-        {/* 3. Nasz nowy przycisk koszyka! */}
+      {/* SEKCJA 2: LINKI I TWÓJ KOSZYK */}
+      <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+        <Link to="/" onClick={() => setIsMenuOpen(false)}>Sklep</Link>
+        <Link to="/o-nas" onClick={() => setIsMenuOpen(false)}>O nas</Link>
+        <Link to="/kontakt" onClick={() => setIsMenuOpen(false)}>Kontakt</Link>
         <button 
-          onClick={onCartClick}
-          style={{ 
-            backgroundColor: '#ff4757', color: 'white', border: 'none', 
-            padding: '10px 20px', borderRadius: '20px', cursor: 'pointer',
-            fontWeight: 'bold', fontSize: '16px'
-          }}
+          className="cart-btn" 
+          onClick={onCartClick} 
         >
           🛒 Koszyk ({cartItemCount})
         </button>
       </nav>
+
     </header>
   );
 }

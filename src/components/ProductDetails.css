@@ -1,0 +1,146 @@
+/* --- OGÓLNE USTAWIENIA STRONY --- */
+.product-page-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+    color: #333;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #5b2c6f;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 0;
+    text-decoration: none;
+}
+
+.product-top-section {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.main-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.thumbnails-container {
+    display: flex;
+    gap: 10px;
+}
+
+.thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.buy-panel {
+    flex: 1;
+}
+
+.category { color: #666; margin: 0 0 5px 0; font-size: 14px; }
+.title { margin: 0; font-size: 32px; font-weight: bold; }
+.artist { margin: 0 0 15px 0; font-size: 20px; font-weight: normal; color: #444; }
+.price { font-size: 24px; font-weight: bold; margin: 0 0 20px 0; }
+
+.add-to-cart-btn {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 250px;
+}
+.add-to-cart-btn:hover { background-color: #e2e2e2; }
+
+.benefits p { margin: 5px 0; font-size: 13px; color: #555; }
+
+
+.divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 40px 0;
+}
+
+h3 { margin-top: 0; }
+
+.tracks-box {
+    padding-top: 10px;
+}
+
+.tracks-box ol {
+    padding-left: 25px;
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+
+.tracks-box li {
+    font-size: 16px;
+    color: #333;
+}
+.description-box p {
+    padding-top: 10px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+
+    .product-top-section {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .thumbnails-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .buy-panel {
+        width: 100%;
+        text-align: center;
+    }
+
+    .add-to-cart-btn {
+        width: 100%;
+    }
+    .tracks-box ol {
+        padding-left: 25px;
+        line-height: 1.8;
+        margin-top: 15px;
+    }
+
+    .tracks-box li {
+        font-size: 16px;
+        color: #333;
+    }
+    .tracks-box {
+        padding-top: 10px;
+    }
+    .description-box p {
+        padding-top: 10px;
+        text-align: justify;
+    }
+    .price {
+        text-align: center;
+    }
+}

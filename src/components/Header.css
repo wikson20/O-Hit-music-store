@@ -1,0 +1,77 @@
+/* =========================================
+   1. WYGLĄD NA KOMPUTERZE (Domyślny)
+   ========================================= */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+}
+
+.hamburger-btn {
+  display: none; 
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background-color: #e5b143;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =========================================
+   2. WYGLĄD NA TELEFONIE (Poniżej 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  .main-nav {
+    flex-direction: column; /* Układamy elementy z góry na dół */
+    align-items: stretch;
+  }
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between; /* Logo na lewo, Hamburger na prawo */
+    align-items: center;
+  }
+
+  /* Pokazujemy przycisk hamburgera! */
+  .hamburger-btn {
+    display: block; 
+  }
+
+  /* Chowamy linki domyślnie na telefonie */
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  /* Kiedy klikniesz hamburgera, React dodaje klasę "open". 
+     Wtedy CSS włącza wyświetlanie linków! */
+  .nav-links.open {
+    display: flex; 
+  }
+}
